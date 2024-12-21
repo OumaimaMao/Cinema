@@ -16,106 +16,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-<style>
-       .filter-container {
-            display: flex;
-            align-items: center;
-            gap: 80px;
-            padding: 80px 0px 50px 150px;
-        }
-        .filter-item {
-            position: relative;
-            padding: 5px;
-            cursor: pointer;
-            color: white !important;
-            font-size: 18px;
-            display: inline-block;
-            white-space: nowrap;
-        }
-        .filter-item::after {
-          content: "";
-          position: absolute;
-          bottom: 0;
-          left: 0px;
-          width: 100%;
-          height: 1.5px;
-          background-color: #D50000 !important; 
-        }
-        .filter-item:hover::after,
-        .active::after {
-            transform: scaleX(1);
-            transform-origin: left;
-        }
-        .dropdown {
-            position: relative;
-        }
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #333;
-            min-width: 150px;
-            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-            z-index: 1;
-        }
-        .dropdown-content a {
-            color: white;
-            padding: 10px;
-            display: block;
-            text-decoration: none;
-        }
-        .dropdown-content a:hover {
-            background-color: #444;
-        }
-        .navbar-nav {
-          padding-right: 0px !important;
-        }
-        /* Show dropdown on hover */
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-        .filter-item .nav-item{
-          padding: 0px;
-        }
-        .search-bar {
-            margin-left: auto !important; 
-            display: flex !important;
-            border-bottom: 1px solid #ccc !important;
-            padding-bottom: 3px !important; 
-            float: right !important;
-            margin-right: 100px !important;
-            width: 250px !important;
-        }
-        .search-bar input {
-            background: none !important;
-            border: none !important;
-            outline: none !important;
-            color: white !important;
-            font-size: 16px !important;
-        }
-        .search-bar input::placeholder {
-            color: #aaa !important;
-        }
-        .search-bar i {
-            position: absolute;
-            right: 0;
-            color: white;
-            cursor: pointer;
-            margin-right: 100px;
-            background-color: transparent;
-            border: none;
-        }
-        .dropdown a:hover{
-            color: #D50000 !important;
-        }
-        .filter-item:hover{
-            color: #D50000 !important;
-        }
-        .msgError{
-          font-size: 18px;
-          margin-bottom: 80px;
-        }
-
-</style>
     <title>Movies</title>
 </head>
 <body>
@@ -191,6 +91,7 @@
     <div class="time"></div>
 </div>
 <div class="filter-container">
+  <div class="filter-items-row">
     <div class="filter-item">
       <a class="filter-link" data-filter="all" href="#">All</a></div>
     <div class="filter-item">
@@ -199,7 +100,7 @@
       </a>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
           @foreach ($date as $dateKey => $dates)
-          <li><a class="dropdown-item filter-link" href="#" data-filter="date" data-value="{{ $dateKey }}">{{ $dateKey }}</a></li>
+          <li><a class="dropdown-m,,,,,,,,,,,,,,,,,,,,item filter-link" href="#" data-filter="date" data-value="{{ $dateKey }}">{{ $dateKey }}</a></li>
           @endforeach
         </ul>
       </div>
@@ -217,14 +118,16 @@
         </ul>
       </div>
     </div>
+  </div>
     <div class="search-bar">
       <input type="text" class="form-control" id="movieSearch" name="movieName" placeholder="Search by name">
       <span><i class="fa-solid fa-magnifying-glass"></i></span>
     </div>
 </div>
+<!--Movies-->
 <div class="row g-4 movies" id="moviesContainer">
     @foreach ($movie as $movies)   
-    <div class="col">
+    <div class="col-6 col-md-4 col-lg-3 col-xl-2-4">
       <a href="/sch/{{ $movies->id }}">
         <div class="card h-100">
         <img src="{{ $movies->small_img }}" class="card-img-top" alt="Movie image"/>
@@ -251,16 +154,16 @@
 
     <!-- Right -->
     <div>
-      <a href="" class="icon-wrapper me-4 text-reset">
+      <a href="" class="icon-wrapper me-2 text-reset">
         <i class="fab fa-facebook-f"></i>
       </a>
-      <a href="" class="icon-wrapper me-4 text-reset">
+      <a href="" class="icon-wrapper me-2 text-reset">
         <i class="fab fa-twitter"></i>
       </a>
-      <a href="" class="icon-wrapper me-4 text-reset">
+      <a href="" class="icon-wrapper me-2 text-reset">
         <i class="fab fa-instagram"></i>
       </a>
-      <a href="" class="icon-wrapper me-4 text-reset">
+      <a href="" class="icon-wrapper me-2 text-reset">
         <i class="fab fa-linkedin"></i>
       </a>
     </div>
@@ -396,7 +299,7 @@
           if (data.data.length > 0) {
             data.data.forEach(movie => {
               movieHtml += `
-                <div class="col">
+                <div class="col-6 col-md-4 col-lg-3 col-xl-2-4">
                   <a href="/sch/${movie.id}">
                     <div class="card h-100">
                       <img src="${movie.small_img}" class="card-img-top" alt="Movie Image"/>
@@ -427,8 +330,5 @@
     }
   });
 </script>
-
-
-
 </body>
 </html>

@@ -12,9 +12,11 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.3.2/mdb.min.css" rel="stylesheet"/>
     <!--File css-->
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
-    <title>Document</title>
+    <title>Place</title>
     <style>
-
+ .place{
+        background-image: linear-gradient(rgba(0, 0, 0, 0.415),rgba(0, 0, 0, 0.400)),url({{ asset($movie->big_img) }});
+  }
   </style>
   
 </head>
@@ -48,7 +50,7 @@
   <!-- Navbar -->
 <!--Interface-->
 <div class="interface">
-  <div class="p-5 text-center bg-light caption-inte schedule">
+  <div class="p-5 text-center bg-light caption-inte place">
       <div class="container" style="position: absolute; top: 50%; left: 0; width: 100%; transform: translateY(-55%);">
           <div class="row mx-lg-n5">
             <div class="col-md-6 py-3 px-lg-5">
@@ -60,6 +62,7 @@
           </div>
       </div>
   </div>
+</div>
   <!-- Steps Section -->
   <div class="steps-container text-light p-3">
     <div class="container">
@@ -68,8 +71,8 @@
                 <span class="step-number"><i class="fa-solid fa-check"></i></span>
                 <p><a href="">SCHEDULE</a> </p>
             </div>
-          <div class="col-md-3 step reached">
-                <span class="step-number">2</span>
+          <div class="col-md-3 step reached" id="step-2">
+                <span class="step-number" >2</span>
                 <p><a href="">CHOOSE PLACE</a> </p>
             </div>
             <div class="col-md-3 step">
@@ -83,7 +86,7 @@
         </div>
     </div>
 </div>
-</div> 
+
 <!--Place-->
 <div class="container booking">
     <div class="left">
@@ -106,11 +109,11 @@
           @foreach ($place as $row => $seats )
               <div class="seat-row">
                 @foreach ($seats as $seat)
-                @if($bookedSeats->contains('idplace', $seat->id))
-                <div class="seat unavailable" data-row="{{ $seat->row }}" data-seat="{{ $seat->seat }}" data-price="{{ $seat->price }}" data-id='{{ $seat->id }}' style='pointer-events:none; background-color: rgb(30, 31, 32); cursor: not-allowed;'></div>
-                @else
-                <div class="seat available" data-row="{{ $seat->row }}" data-seat="{{ $seat->seat }}" data-price="{{ $seat->price }}" data-id='{{ $seat->id }}'></div>
-                @endif
+                  @if($bookedSeats->contains('idplace', $seat->id))
+                    <div class="seat unavailable" data-row="{{ $seat->row }}" data-seat="{{ $seat->seat }}" data-price="{{ $seat->price }}" data-id='{{ $seat->id }}' style='pointer-events:none; background-color: rgb(30, 31, 32); cursor: not-allowed;'></div>
+                  @else
+                    <div class="seat available" data-row="{{ $seat->row }}" data-seat="{{ $seat->seat }}" data-price="{{ $seat->price }}" data-id='{{ $seat->id }}'></div>
+                  @endif
                 @endforeach
               </div>
             @endforeach
@@ -138,16 +141,16 @@
   
       <!-- Right -->
       <div>
-        <a href="" class="icon-wrapper me-4 text-reset">
+        <a href="" class="icon-wrapper me-2 text-reset">
           <i class="fab fa-facebook-f"></i>
         </a>
-        <a href="" class="icon-wrapper me-4 text-reset">
+        <a href="" class="icon-wrapper me-2 text-reset">
           <i class="fab fa-twitter"></i>
         </a>
-        <a href="" class="icon-wrapper me-4 text-reset">
+        <a href="" class="icon-wrapper me-2 text-reset">
           <i class="fab fa-instagram"></i>
         </a>
-        <a href="" class="icon-wrapper me-4 text-reset">
+        <a href="" class="icon-wrapper me-2 text-reset">
           <i class="fab fa-linkedin"></i>
         </a>
       </div>
@@ -241,6 +244,8 @@
     </div>
     <!-- Copyright -->
   </footer>
+   <!--file JS-->
+ <script src="{{ asset('js/app.js') }}"></script>
  <!-- MDB -->
  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.3.2/mdb.umd.min.js"></script>
 <script>

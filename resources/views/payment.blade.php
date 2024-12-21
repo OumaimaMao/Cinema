@@ -13,10 +13,10 @@
     <!--File css-->
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     <title>Document</title>
-
-
     <style>
-
+     .payment{
+        background-image: linear-gradient(rgba(0, 0, 0, 0.415),rgba(0, 0, 0, 0.400)),url({{ asset($movie->big_img) }});
+      }    
   </style>
   
 </head>
@@ -50,7 +50,7 @@
   <!-- Navbar -->
 <!--Interface-->
 <div class="interface">
-  <div class="p-5 text-center bg-light caption-inte schedule">
+  <div class="p-5 text-center bg-light caption-inte payment">
       <div class="container" style="position: absolute; top: 50%; left: 0; width: 100%; transform: translateY(-55%);">
           <div class="row mx-lg-n5">
             <div class="col-md-6 py-3 px-lg-5">
@@ -70,7 +70,7 @@
                 <span class="step-number"><i class="fa-solid fa-check"></i></span>
                 <p><a href="">SCHEDULE</a> </p>
             </div>
-          <div class="col-md-3 step">
+          <div class="col-md-3 step" id="step-2">
                 <span class="step-number"><i class="fa-solid fa-check"></i></span>
                 <p><a href="">CHOOSE PLACE</a> </p>
             </div>
@@ -86,8 +86,8 @@
     </div>
 </div>
 </div> 
-<!--Place Booked-->
-<div class="container booking">
+<!--Payment-->
+<div class="container pay">
     <div class="left">
           <div class="selected-seats">
             @php
@@ -133,14 +133,14 @@
                     </div>
                   </div>
                   <div class="row g-3">
-                    <div class="col-sm-9 mb-5">
+                    <div class="col-sm-9 mb-5" id="input-card">
                         <!-- Card number input -->
                         <div data-mdb-input-init class="form-outline d-flex align-items-center">
                           <input type="email" id="form8Example2" class="form-control" />
                           <label class="form-label" for="form8Example2">Card Number</label>
                         </div>
                       </div>
-                      <div class="col-sm">                       
+                      <div class="col-sm" id="type-card">                       
                         <div class="col card-icons ml-3">
                           <img src="{{ asset('images/visa.jpg') }}" alt="Visa" style="width: 30px; margin-left: 5px;">
                           <img src="{{ asset('images/master.png') }}" alt="MasterCard" style="width: 30px; margin-left: 5px;">
@@ -190,16 +190,16 @@
   
       <!-- Right -->
       <div>
-        <a href="" class="icon-wrapper me-4 text-reset">
+        <a href="" class="icon-wrapper me-2 text-reset">
           <i class="fab fa-facebook-f"></i>
         </a>
-        <a href="" class="icon-wrapper me-4 text-reset">
+        <a href="" class="icon-wrapper me-2 text-reset">
           <i class="fab fa-twitter"></i>
         </a>
-        <a href="" class="icon-wrapper me-4 text-reset">
+        <a href="" class="icon-wrapper me-2 text-reset">
           <i class="fab fa-instagram"></i>
         </a>
-        <a href="" class="icon-wrapper me-4 text-reset">
+        <a href="" class="icon-wrapper me-2 text-reset">
           <i class="fab fa-linkedin"></i>
         </a>
       </div>
@@ -362,6 +362,7 @@ $(function() {
           .catch(error => console.error('Error checking payment status:', error));
   });
 </script>
-
+ <!--file JS-->
+ <script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>

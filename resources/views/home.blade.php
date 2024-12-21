@@ -16,10 +16,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-<style>
-  
-</style>
-    <title>Document</title>
+    <title>Home</title>
 </head>
 <body>
   <!-- Navbar -->
@@ -57,8 +54,8 @@
         <img src="{{ $slideMovies->big_img }}" >
     <div class="content">
         <div class="author">CINEMA</div>
-        <div class="title">{{ $slideMovies->title }}</div>
-        <div class="topic">MOVIE</div>
+        <div class="title">MOVIE</div>
+        <div class="topic">{{ $slideMovies->title }}</div>
         <div class="des">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
@@ -99,7 +96,7 @@
         <h1>Opening this week</h1>
     </div>
     @foreach ($opening as $open)   
-    <div class="col">
+    <div class="col-6 col-md-4 col-lg-3 col-xl-2-4">
       <a href="/sch/{{ $open->movie->id }}">
         <div class="card h-100">
         <img src="{{ $open->movie->small_img }}" class="card-img-top" alt="Skyscrapers"/>
@@ -157,16 +154,16 @@
 
     <!-- Right -->
     <div>
-      <a href="" class="icon-wrapper me-4 text-reset">
+      <a href="" class="icon-wrapper me-2 text-reset">
         <i class="fab fa-facebook-f"></i>
       </a>
-      <a href="" class="icon-wrapper me-4 text-reset">
+      <a href="" class="icon-wrapper me-2 text-reset">
         <i class="fab fa-twitter"></i>
       </a>
-      <a href="" class="icon-wrapper me-4 text-reset">
+      <a href="" class="icon-wrapper me-2 text-reset">
         <i class="fab fa-instagram"></i>
       </a>
-      <a href="" class="icon-wrapper me-4 text-reset">
+      <a href="" class="icon-wrapper me-2 text-reset">
         <i class="fab fa-linkedin"></i>
       </a>
     </div>

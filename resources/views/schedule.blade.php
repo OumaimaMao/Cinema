@@ -16,7 +16,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Sixtyfour+Convergence&display=swap" rel="stylesheet">
-    <title>Document</title>
+    <title>Schedule</title>
     <style>
       .schedule{
         background-image: linear-gradient(rgba(0, 0, 0, 0.415),rgba(0, 0, 0, 0.400)),url({{ asset($movie->big_img) }});
@@ -59,7 +59,7 @@
             <div class="col-md-6 py-3 px-lg-5">
               <div class="div-caption d-flex align-items-center">
                 <img src="{{ asset($movie->small_img) }}" alt="Small Image" class="small-image">
-                 <h1>Movie title</h1>
+                 <h1>{{ $movie->title }}</h1>
               </div>
             </div>
           </div>
@@ -73,7 +73,7 @@
                 <span class="step-number ">1</span>
                 <p><a href="">SCHEDULE</a> </p>
             </div>
-          <div class="col-md-3 step">
+          <div class="col-md-3 step" id="step-2">
                 <span class="step-number">2</span>
                 <p><a href="">CHOOSE PLACE</a> </p>
             </div>
@@ -122,10 +122,6 @@
       </div>
     </div>
     @endforeach
-    <!--div class="actions">
-      <button type="button" class="cancel">Cancel</button></a>
-      <button type="submit" class="next" disabled >Next</button>
-    </div-->
   </div>
 </div>
 <!--STORYLINE-->
@@ -138,14 +134,6 @@
       <p>{{ $actors->name }}</p>
   </div>
   @endforeach
-  <!--div class="actor">
-      <img src="{{ asset('images/actor2.jpg') }}" alt="Actor 2" />
-      <p>NAME</p>
-  </div>
-  <div class="actor">
-      <img src="{{ asset('images/actor2.jpg') }}" alt="Actor 3" />
-      <p>NAME</p>
-  </div-->
   </div>
   <div class="storyline-right">
     <h3>Storyline</h3>
@@ -164,16 +152,16 @@
 
     <!-- Right -->
     <div>
-      <a href="" class="icon-wrapper me-4 text-reset">
+      <a href="" class="icon-wrapper me-2 text-reset">
         <i class="fab fa-facebook-f"></i>
       </a>
-      <a href="" class="icon-wrapper me-4 text-reset">
+      <a href="" class="icon-wrapper me-2 text-reset">
         <i class="fab fa-twitter"></i>
       </a>
-      <a href="" class="icon-wrapper me-4 text-reset">
+      <a href="" class="icon-wrapper me-2 text-reset">
         <i class="fab fa-instagram"></i>
       </a>
-      <a href="" class="icon-wrapper me-4 text-reset">
+      <a href="" class="icon-wrapper me-2 text-reset">
         <i class="fab fa-linkedin"></i>
       </a>
     </div>
@@ -267,6 +255,8 @@
   </div>
   <!-- Copyright -->
 </footer>
+ <!--file JS-->
+ <script src="{{ asset('js/app.js') }}"></script>
   <!-- MDB -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.3.2/mdb.umd.min.js"></script>
 </body>
